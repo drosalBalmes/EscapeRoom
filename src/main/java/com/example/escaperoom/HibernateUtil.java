@@ -21,10 +21,6 @@ public class HibernateUtil {
             // Creamos es SessionFactory desde el fichero hibernate.cfg.xml
             sessionFactory = new AnnotationConfiguration()
                     .configure(new File("hibernate.cfg.xml"))
-                    .addAnnotatedClass(AlumnoEntity.class)
-                    .addAnnotatedClass(ExamenEntity.class)
-                    .addAnnotatedClass(ModuloEntity.class)
-                    .addAnnotatedClass(ProfesorEntity.class)
                     .buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Error en la inicialización.  " + ex);

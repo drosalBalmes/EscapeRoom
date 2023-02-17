@@ -17,17 +17,16 @@ public class EscapeRoom {
 //        Query query1 = session1.createQuery("SELECT COUNT(m.idModulo) from ModuloEntity m");
 //        x = query1.executeUpdate();
         System.out.println("El código descubierto es :" +x+y+z+w);
+        session1.getTransaction().commit();
         session1.close();
     }
     public static int codigo1() {
         //TO-DO
-        //SELECT COUNT(idModulo) FROM modulo
-        Session session1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = session1.getTransaction();
         transaction.begin();
-        Query query1 = session1.createQuery("SELECT COUNT(m) from ModuloEntity m");
-        long result = (long)query1.uniqueResult();
-        session1.getTransaction().commit();
+        Query q1 = session1.createQuery("select count(m) from ModuloEntity m");
+        long result = (long)q1.uniqueResult();
+
         return (int) result;
     }
     public static int codigo2() {
